@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+.table__container{
+  width: 100%;
+  overflow: auto;
+} 
+
+.button__container{
+  display: flex;
+}
+ 
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+mat-dialog-container{
+  padding: 1rem;
+}
+
+.add{
+  margin-block: 1em;
+}

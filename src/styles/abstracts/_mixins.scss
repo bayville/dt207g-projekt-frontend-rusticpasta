@@ -1,0 +1,14 @@
+@use 'breakpoints';
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin tablet {
+  @media (width < breakpoints.$breakpoint-m) {@content;}
+}
+@mixin mobile {
+  @media (width < breakpoints.$breakpoint-s) {@content;}
+}

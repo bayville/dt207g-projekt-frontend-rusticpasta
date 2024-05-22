@@ -1,0 +1,19 @@
+$primary-light: #F9F9F9; //Slight grey
+$primary-dark: #093340; //Blue-green
+$primary-red: #CA4444; //Red
+$primary-brown: #654C4F; //Brown
+$primary-beige: #F5F7DC; //Beige
+$primary-orange: #E77728; //Orange
+$white-color: #fff;
+
+//Padding/Margin
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+$button-padding: ($base-padding * 1.75) ($base-padding * 2.25);
+$section-padding: $base-padding * 4;
+$section-margin: $base-margin * 4;
+
+
+//Border-radius
+$base-border-radius: 7px;

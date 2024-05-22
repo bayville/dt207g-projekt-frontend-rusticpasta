@@ -1,0 +1,63 @@
+@use '../abstracts/' as a;
+
+.btn{
+    padding: a.$button-padding;
+    border:2px solid transparent;
+    border-radius: a.$base-border-radius;
+    cursor: pointer;   
+    transition: 0.2s;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+
+    &:active{
+        transform: translateY(-3px);
+    }
+
+    //Priary button styles
+    &__primary{
+        //Red button
+        &--red{
+            @extend .btn;
+            background: a.$primary-red;
+            color: white;
+            &:hover{
+                color: white;
+                background: darken(a.$primary-red, 10%);
+            }
+        }
+        &--dark{
+            @extend .btn;
+            background: a.$primary-dark;
+            color: white;
+            &:hover{
+                color: white;
+                background: darken(a.$primary-dark, 10%);
+            }
+        }
+    }
+
+    &__outline{
+        &--red{
+            @extend .btn;
+            background-color: transparent;
+            color: a.$primary-red;
+            border: 2px solid a.$primary-red;
+            &:hover{
+                color: darken(a.$primary-red, 10%);
+            }
+        }
+
+        &--beige{
+            @extend .btn;
+            background-color: transparent;
+            color: a.$primary-beige;
+            border: 2px solid a.$primary-beige;
+            &:hover{
+                color: a.$primary-dark;
+                background-color: a.$primary-beige;
+            }
+        }
+    }
+}

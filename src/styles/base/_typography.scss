@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Oswald:wght@700&display=swap');
+@import '../abstracts/';
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 700
+
+
+$base-font-size: 1rem;
+$font-size-h1: $base-font-size * 3.125;
+$font-size-h2: $base-font-size * 2.5;
+$font-size-h3: $base-font-size * 2.188;
+$font-size-h4: $base-font-size * 1.625;
+
+$font-size-h1-m: $base-font-size * 2.125;
+$font-size-h2-m: $base-font-size * 1.875;
+$font-size-h3-m: $base-font-size * 1.625;
+$font-size-h4-m: $base-font-size * 1.375;
+
+$font-size-small: $base-font-size * 0.875;
+$font-size-smallest: $base-font-size * 0.75;
+
+
+$font-family: "Open Sans", sans-serif;
+$heading-font-family: "Oswald", sans-serif;
+
+
+html{font-family: $font-family;
+    font-optical-sizing: auto;
+
+}
+
+button{
+    font-family: $font-family;
+}
+
+p{
+    font-size: $base-font-size;
+    font-family: $font-family;
+    max-width: 70ch;
+    line-height: $base-font-size * 1.5;
+    font-variation-settings:"wdth" 100;
+}
+
+h1,h2,h3,h4{
+    font-family: $heading-font-family;
+    font-weight: 700;
+}
+
+
+h1{ font-size: $font-size-h1; margin:0; @include tablet{font-size: $font-size-h1-m;}}
+h2{ font-size: $font-size-h2; margin:0; @include tablet{font-size: $font-size-h2-m;}}
+h3{ font-size: $font-size-h3; margin:0; @include tablet{font-size: $font-size-h3-m;}}
+h4{ font-size: $font-size-h4; margin:0; @include tablet{font-size: $font-size-h4-m;}}
+
+.small{font-size: $font-size-small; }
+.smallest{font-size: $font-size-smallest; }
+
+.hero__title{font-size: 3.75rem; text-transform: uppercase; @include tablet {font-size: 2.125rem}}
+.hero__title--sub{font-size: $font-size-h4; margin:0; @include tablet{font-size: $font-size-h4-m;}}
+.cta__title{font-size: 2.125rem; text-transform: uppercase;}
+
+.menu__item--title{
+    font-size: 1.25rem;
+    margin: 0;
+    color: $primary-dark;
+    span{
+        color: $primary-red;
+        margin-inline-start: 0.5em;
+    }
+}
+
+.menu__item--description{
+    font-size: $font-size-small;
+    max-width: 40ch;
+    line-height: normal;
+    font-style: italic;
+    margin: 0;
+
+}

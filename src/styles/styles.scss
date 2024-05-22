@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@forward 'abstracts';
+@use 'base';
+@use 'components';
+
+
+//Prevents scrolling
+.no-scroll{
+    overflow-y: hidden;
+  }
+
+//Smooth scrolling
+html{
+    scroll-behavior: smooth;
+}
+
+app-root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-footer{
+  margin-top: auto;
+}
+html, body { height: 100%; }

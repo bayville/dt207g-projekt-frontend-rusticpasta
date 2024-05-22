@@ -1,0 +1,18 @@
+.success-snackbar {
+    --mdc-snackbar-container-color: green !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+  
+    .mat-mdc-button.mat-mdc-snack-bar-action {
+      color: white !important;
+    }
+  }
+  
+  .failed-snackbar {
+    --mdc-snackbar-container-color: red !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+  
+    .mat-mdc-button.mat-mdc-snack-bar-action {
+      color: white !important;
+    }
+  }
+  
