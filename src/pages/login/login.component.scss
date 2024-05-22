@@ -1,0 +1,42 @@
+@use '../../../styles/styles.scss' as styles;
+
+section{
+    padding-block: styles.$section-padding;
+}
+
+.form {
+    max-width: 400px;
+    margin-block: 2rem; /* Add padding around the form */
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 0.5rem;
+        font-weight: 700; /* Make labels bold */
+    }
+
+    input {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc; /* Add a thin border around input fields */
+        border-radius: 3px; /* Round corners of input fields */
+    }
+    
+    .error-list {
+        margin-top: 1rem;
+        padding: 0;
+        list-style: none;
+        color: #c0392b; /* Red color for error messages */
+
+        li {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+    }
+
+    .message {
+        margin-top: 1rem;
+        font-size: 14px;
+    }
+}

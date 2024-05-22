@@ -1,0 +1,6 @@
+@use '../../../styles/styles.scss' as styles;
+.menu{
+    background: url('../../../assets/img/wavey-fingerprint.svg');
+    padding-block: styles.$section-padding;
+    
+}

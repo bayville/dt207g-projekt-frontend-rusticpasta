@@ -1,0 +1,42 @@
+@use '../../../styles/styles.scss' as styles;
+
+h1{
+    color: styles.$primary-dark;
+    padding-block: 1rem;
+    text-transform: uppercase;
+}
+.main{
+    background: url('../../../assets/img/wavey-fingerprint.svg');
+    min-height: 90dvh;
+}
+
+.order__grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+}
+
+
+  .cart-button {
+    position: fixed;
+    bottom:8dvh; 
+    right: 5dvw; 
+    z-index: 99;
+    background-color: styles.$primary-red;
+    color: #fff; 
+    border: none;
+    border-radius: 50%; 
+    width: 4rem; 
+    height: 4rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+
+.button{
+  margin-block: 1em;
+}

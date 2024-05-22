@@ -1,0 +1,16 @@
+@use '../../../styles/styles.scss' as styles;
+
+h1{
+    text-transform: uppercase;
+    color: styles.$primary-dark;
+}
+
+.grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include styles.tablet {
+        grid-template-columns: 1fr;
+    }
+}

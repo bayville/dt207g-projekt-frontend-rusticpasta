@@ -1,0 +1,20 @@
+
+<section class="container--l center">
+    <h1 class="center-text">Logga in</h1>
+    
+    <!-- Login form -->
+    <form class="form center" id="loginForm" (submit)="onSubmit($event)" method="post">
+        <label for="formUsername">Användarnamn:</label>
+        <input type="text" name="username" id="formUsername" placeholder="Användarnamn" [(ngModel)]="form.username">
+        <label for="formPassword">Lösenord:</label>
+        <input type="password" name="password" id="formPassword" placeholder="Lösenord"  [(ngModel)]="form.password">
+        <button type="submit" class="btn__primary--dark">Logga in</button>
+        <ul id="error" class="error-list">
+            <li *ngFor="let error of formErrors">
+                {{error.msg}}
+            </li>
+        </ul>
+        <p class="message">För att testa webbplatsen utan att registrera ett konto kan du logga in med <strong>användarnamn:</strong> demo, <strong>lösenord:</strong> demo1234</p>
+    </form>
+    
+</section>

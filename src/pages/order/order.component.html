@@ -1,0 +1,14 @@
+<section class="main">
+    <article class="container--l">
+        <h1 class="test">Beställ online</h1>
+        <button [routerLink]="'/checkout'" class="btn__primary--red button">Till kassan</button>
+        <app-order-item></app-order-item>
+    </article>
+    
+    <div *ngIf="showCart">
+        <app-mini-cart></app-mini-cart>
+    </div>
+    <button class="cart-button" (click)="openAddDialog()">
+        <mat-icon>shopping_basket</mat-icon>
+    </button>
+</section>

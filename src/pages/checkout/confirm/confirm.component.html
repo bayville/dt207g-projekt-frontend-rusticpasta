@@ -1,0 +1,18 @@
+<section class="receipt container--l">
+  <h1>Kvitto</h1>
+  
+  <div *ngIf="order">
+    <p>Order ID: <span>{{ order.id }}</span></p>
+    <p>Kund:<span> {{ order.customer.firstName }} {{ order.customer.lastName }} (ID: {{ order.customer.id }})</span></p>
+    <p>Datum: <span>{{ order.createdAt | date:'yyyy-MM-dd HH:mm' }}</span></p>
+    <h3>Varor:</h3>
+    <ul>
+      <li *ngFor="let item of order.orderItems">
+          {{ item.quantity }} x {{ item.menuItems.name}}
+      </li>
+    </ul>
+    <h2>Total Summa: <span>{{ order.totalAmount }} kr</span></h2>
+  </div>
+  <p>Ett bekräftelsemail har skickats till din mailadress.</p>
+  <div class="img__container"><img src="../../../../assets/img/logo-dark.svg" alt=""></div>
+</section>

@@ -1,0 +1,11 @@
+<section class="container--l">
+  <h1>Kassa</h1>
+  <div *ngIf="showCheckout" class="grid">
+    <app-cart></app-cart>
+    <app-checkout-flow></app-checkout-flow>
+  </div>
+  <div *ngIf="!showCheckout">
+    <p >Du måste lägga till innehåll i din varukorg</p>
+    <button [routerLink]="'/order'" class="btn__primary--red">Beställ online</button>
+  </div>
+</section>
