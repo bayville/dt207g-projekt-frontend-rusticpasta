@@ -1,0 +1,20 @@
+<div class="mainnav container--l">
+    <a routerLink="/"  routerLinkActive="active" class="mainnav__link"><img src="../../assets/img/logo-beige.svg" class="logo" alt="logo rustic pasta"></a>
+    <nav>
+        <span id="nav-label" hidden>Navigation</span>
+        <button id="btnOpen" class="mainnav__open" aria-expanded="false" aria-labelledby="nav-label" (click)="toggleMenu()">
+            <ng-icon name="heroBars3Mini"></ng-icon>
+        </button>
+
+            <div class="mainnav__menu" [class.open]="this.isMenuOpen">
+                <button class="mainnav__close" id="btnClose" aria-label="Close" (click)="toggleMenu()">
+                    <ng-icon name="heroXMarkMini"></ng-icon>
+                </button>
+                <ul class="mainnav__links" id="mainNav">
+                    <li class="mainnav__item"><a routerLink="/home"  routerLinkActive="active" class="mainnav__link" (click)="toggleMenu()">Hem</a></li>
+                    <li class="mainnav__item"><a routerLink="/order"  routerLinkActive="active" class="mainnav__link" (click)="toggleMenu()">Beställ online</a></li>
+                </ul>
+                
+            </div>
+    </nav>
+</div>

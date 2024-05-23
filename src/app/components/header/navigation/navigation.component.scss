@@ -1,0 +1,89 @@
+// Importing styles
+@use '../../../../styles/styles' as styles;
+
+img{
+    max-width: 150px;
+}
+.mainnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+
+        @media (min-width: #{styles.$breakpoint-m}) {
+            display: none;
+        }
+    }
+
+    &__open {
+        font-size: 2rem;
+        color: styles.$white-color;
+        cursor: pointer;
+    }
+    &__close {
+        font-size: 2rem;
+        color: styles.$white-color;
+        cursor: pointer;
+    }
+
+    &__menu {
+        @include styles.tablet {
+            display: flex; // Show the menu on tablets and smaller devices
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: center;
+            gap: 1rem;
+            background-color: styles.$primary-dark;
+            padding: 1.5rem;
+            position: fixed;
+            width: 100dvw;
+            height: 100dvh;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: -1;
+            
+            transition: opacity 0.15s ease-in-out;
+
+            &.open {
+              opacity: 1;
+              z-index: 50;
+              
+          }
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin-inline: auto;
+        padding: 0;
+      
+        @include styles.tablet {
+          flex-direction: column;
+          padding-block: 0.5rem;
+          font-size: 2rem;
+          gap: 2rem;
+        }
+
+        .mainnav__link {
+            color: styles.$white-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        
+            
+        }
+    }
+    .active {
+      font-weight: 700;
+    }
+    
+}

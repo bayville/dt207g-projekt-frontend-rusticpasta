@@ -1,0 +1,15 @@
+@use '../../../styles/styles.scss' as styles;
+
+
+header{
+    background-color: styles.$primary-dark;
+    color: styles.$white-color;
+    padding-block: styles.$base-padding;
+
+    a {
+        color:styles.$white-color;
+        text-decoration: none;
+    }
+
+
+}
