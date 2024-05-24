@@ -1,0 +1,32 @@
+@use '../../../styles/styles.scss' as styles;
+
+.cta{
+    padding-block: calc(styles.$section-padding * 1);
+    text-align: center;
+    p{
+        margin-inline: auto;
+        padding-block: 1.5rem;
+    }
+    
+    &__light{
+        @extend .cta;
+        background-color: styles.$primary-beige;
+        color: styles.$primary-dark;
+
+        .cta__btn {
+            background-color: styles.$primary-red;
+            color: #fff;
+        }
+    }
+
+    &__dark{
+        @extend .cta;
+        background-color: styles.$primary-dark;
+        color: #fff;
+
+        .cta__btn {
+            background-color: styles.$primary-red;
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@use '../../../styles/styles.scss' as styles;
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: styles.$primary-beige;
+
+    &__about{
+        padding: styles.$section-padding;
+        background-color: styles.$primary-dark;
+        color: #fff;
+        
+        h3{
+            text-transform: uppercase;
+        }
+    }
+
+    &__info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        max-width: 680px;
+        justify-items: center;
+        padding: styles.$section-padding;
+        color: styles.$primary-dark;
+    }
+
+    @media screen and (max-width: 992px) {
+           grid-template-columns: 1fr;
+            &__info{
+                // grid-template-columns: 1fr 1fr;
+                justify-items:  start;
+            }
+    }
+
+    @include styles.mobile{
+        &__info{
+            row-gap: 1rem;
+            grid-template-columns: 1fr;
+
+        }   
+    }
+}
+
+.max__width--left{
+    margin-inline-start: auto;
+    max-width: 600px;
+
+    @media screen and (max-width: 992px) {
+        margin-inline-start: 0;
+    }
+}

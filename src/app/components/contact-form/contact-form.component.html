@@ -1,0 +1,24 @@
+<section class="dialog__container">
+    <h4 mat-dialog-title>Kontakta oss</h4>
+    <div mat-dialog-content>
+      <form [formGroup]="messageForm">
+        <mat-form-field>
+          <mat-label>Namn</mat-label>
+          <input matInput formControlName="name" placeholder="Namn" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Meddelande</mat-label>
+          <textarea matInput formControlName="message" placeholder="Meddelande"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Avbryt</button>
+      <button mat-button color="primary" (click)="onSaveClick()">Skicka</button>
+    </div>
+  </section>
+  

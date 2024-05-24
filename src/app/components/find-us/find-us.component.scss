@@ -1,0 +1,20 @@
+@use '../../../styles/styles.scss' as styles;
+
+h4 {
+    text-transform: uppercase;
+}
+.white{
+    color: #fff;
+}
+.dark{
+    color: styles.$primary-dark;
+}
+ul{
+    list-style: none;
+    padding-inline: 0;
+
+    li{
+        padding-block: 0.3rem;
+    }
+
+}
