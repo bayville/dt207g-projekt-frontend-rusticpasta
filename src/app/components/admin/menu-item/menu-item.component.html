@@ -1,0 +1,70 @@
+<h1>Mat & Dryck</h1>
+<button mat-flat-button color="primary" class="add" (click)="openAddDialog()"><mat-icon>add</mat-icon> Lägg till</button>
+<mat-form-field>
+    <mat-label>Sök</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Sök på maträtt/dryck" #input>
+  </mat-form-field>
+
+<div class="table__container">
+  <table mat-table [dataSource]="dataSource" matSort>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+        Namn
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price">
+        Pris
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+  
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by category">
+        Kategori
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+    </ng-container>
+  
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">
+        Beskrivning
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+  
+    <!-- Published Column -->
+    <ng-container matColumnDef="published">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by published">
+        Publicerad
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.published}} </td>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        Åtgärder
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="button__container">
+          <button mat-icon-button (click)="openEditDialog(element)"> <mat-icon>edit</mat-icon> </button>
+          <button mat-icon-button (click)="delteItem(element)"><mat-icon>delete</mat-icon></button>
+        </div>
+        
+      </td>
+    </ng-container>
+  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page of users"></mat-paginator>
+</div>

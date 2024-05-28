@@ -1,0 +1,32 @@
+<section class="dialog__container">
+  <h1 mat-dialog-title>Redigera</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="editForm">
+      <mat-form-field>
+        <mat-label>Namn</mat-label>
+        <input matInput formControlName="name" placeholder="Namn" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Beskrivning</mat-label>
+        <textarea matInput formControlName="description" placeholder="Beskrivning"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Pris</mat-label>
+        <input matInput formControlName="price" placeholder="Pris" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Kategori</mat-label>
+        <mat-select formControlName="category" placeholder="Kategori" required>
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox formControlName="published">Publicerad</mat-checkbox>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Avbryt</button>
+    <button mat-button color="primary" (click)="onSaveClick()">Spara</button>
+  </div>
+</section>

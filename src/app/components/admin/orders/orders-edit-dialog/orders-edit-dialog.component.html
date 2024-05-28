@@ -1,0 +1,28 @@
+<section class="dialog__container">
+    <h1 mat-dialog-title>Redigera</h1>
+    <div mat-dialog-content>
+      <div>
+        <p>Kund: {{order.customer.firstName}} {{order.customer.lastName}}</p>
+        <div>
+          <h4>Artiklar i beställning:</h4>
+          <ul>
+            <li *ngFor="let items of order.orderItems">{{items.quantity}} x {{items.menuItems.name}}</li>
+          </ul>
+        </div>
+      </div>
+      <form [formGroup]="editForm">
+        <mat-form-field>
+            <mat-select [(value)]="order.status.id">
+                <mat-option *ngFor="let status of status" [value]="status.id">
+                  {{ status.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Avbryt</button>
+      <button mat-button color="primary" (click)="onSaveClick()">Spara</button>
+    </div>
+  </section>
+  

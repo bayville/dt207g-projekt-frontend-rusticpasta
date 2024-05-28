@@ -1,0 +1,18 @@
+@use '../../../styles/styles.scss' as styles;
+
+
+::ng-deep{
+    --mat-stepper-header-selected-state-icon-background-color: styles.$primary-dark !important;
+}
+.mat-mdc-form-field{
+    width: 100%;
+}
+
+mat-form-field{
+    margin-block: 0.5em;
+    
+}
+h2{
+    color: styles.$primary-dark;
+    text-transform: uppercase;
+}

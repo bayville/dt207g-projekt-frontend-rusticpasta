@@ -1,0 +1,55 @@
+@use '../../../styles/styles.scss' as styles;
+
+footer{
+    padding: styles.$section-padding;
+    background-color: styles.$primary-dark;
+    color: #fff;
+
+    h4 {
+        text-transform: uppercase;
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+
+    ul{
+        list-style: none;
+        padding-inline: 0;
+
+        li{
+            padding-block: 0.3rem;
+        }
+    }
+
+    a{
+        color: #fff;
+    }
+
+    .opening--hours li{
+        display: flex;
+        justify-content: space-between;
+        span{
+            margin-inline-start: 2rem;
+        }
+    }
+
+    @include styles.tablet{
+        flex-direction: column;
+
+        h4{
+            margin-block-start: 2em;
+        }
+        .opening--hours {
+           
+
+            li{
+                margin-right:auto ;
+                max-width: 200px;
+            }
+        }
+    }
+
+
+}

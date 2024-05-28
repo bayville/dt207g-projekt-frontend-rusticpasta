@@ -1,0 +1,59 @@
+
+<div *ngIf="!orderReciept" class="stepper__container">
+  <h2>Bekräfta beställning</h2>
+    <mat-stepper linear orientation="vertical" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fyll i din mailadress</ng-template>
+          <mat-form-field>
+            <mat-label>Mailadress</mat-label>
+            <input matInput placeholder="Mailadress" formControlName="email" type="email" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="checkCustomer()">Nästa</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fyll i dina uppgifter</ng-template>
+            <mat-form-field>
+              <mat-label>Mailadress</mat-label>
+              <input matInput placeholder="Mailadress" formControlName="email" type="email">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Förnamn</mat-label>
+              <input matInput placeholder="Förnamn" formControlName="firstName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Efternamn</mat-label>
+              <input matInput placeholder="Efternamn" formControlName="lastName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Telefonnummer</mat-label>
+              <input matInput placeholder="Telefonnummer" formControlName="phone" type="tel" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious color="warn" >Tillbaka</button>
+              <button mat-button (click)="checkOut(stepper)">Bekräfta beställning</button>    
+            </div>
+          </form>
+      </mat-step>
+        <mat-step [stepControl]="orderConfirmed">
+      </mat-step>
+    </mat-stepper>
+</div>
+
+<div *ngIf="orderReciept">
+  <h2>Order ID: {{ orderReciept.id }}</h2>
+  <p>Kund: {{ orderReciept.customer.firstName }} {{ orderReciept.customer.lastName }}</p>
+  <p>Datum: {{ orderReciept.createdAt | date:'yyyy-MM-dd HH:mm' }}</p>
+  <p>Status: {{ orderReciept.status.name }}</p>
+  <h3>Ordervaror:</h3>
+  <ul>
+    <li *ngFor="let item of orderReciept.orderItems">
+        {{ item.quantity }} x {{ item.menuItems.name}} 
+    </li>
+  </ul>
+  <p>Total Summa: {{ orderReciept.totalAmount }} kr</p>
+</div>

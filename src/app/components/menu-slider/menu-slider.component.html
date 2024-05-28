@@ -1,0 +1,24 @@
+<div class="menu">
+  <section class="container--l">
+    <h2 class="menu__title" id="menu">Meny</h2>
+    <p class="menu__info">Dra åt sidan eller tryck på en rubrik för att växla mellan menykategorier.</p>
+    <ul class="menu__navigation">
+      <li *ngFor="let category of categoriesWithMenuItems; let i = index"
+          [class.active]="i === activeSlideIndex"
+          (click)="navigateToSlide(i)">
+        <button [class.bold]="i === activeSlideIndex">{{category.category.name}}</button>
+      </li>
+    </ul>
+  
+  
+    <div class="keen-slider container--l" #sliderRefMenu >
+        <article *ngFor="let category of categoriesWithMenuItems" class="keen-slider__slide menu__category">
+            <h3 class="menu__title">{{category.category.name}}</h3>
+            <div *ngFor="let item of category.menuItems" class="menu__item">
+            <h4 class="menu__item--title">{{item.name}} <span>{{item.price}}</span></h4>
+            <p class="menu__item--description">{{item.description}}</p>
+            </div>
+        </article>
+      </div>
+  </section>
+</div>

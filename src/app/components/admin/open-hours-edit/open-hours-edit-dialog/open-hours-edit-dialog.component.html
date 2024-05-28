@@ -1,0 +1,23 @@
+<section class="dialog__container">
+    <h1 mat-dialog-title>Redigera</h1>
+    <div mat-dialog-content>
+      <form [formGroup]="editForm">
+        <mat-checkbox formControlName="closed" (change)="checkClosed()">Stängt</mat-checkbox>
+            <div *ngIf="!editForm.get('closed')!.value">
+                <mat-form-field>
+                    <mat-label>Öppnar</mat-label>
+                    <input matInput formControlName="openTime" placeholder="Öppnar" type="time" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Stänger</mat-label>
+                    <input matInput formControlName="closeTime" placeholder="Stänger" type="time" required>
+                </mat-form-field>
+            </div>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Avbryt</button>
+      <button mat-button color="primary" (click)="onSaveClick()">Spara</button>
+    </div>
+  </section>
+  

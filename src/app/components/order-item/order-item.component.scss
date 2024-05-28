@@ -1,0 +1,56 @@
+@use '../../../styles/styles.scss' as styles;
+
+h1, h2, h3, h4, h5 {
+    color: styles.$primary-dark;
+}
+
+.order__block{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    width: 100%; 
+}
+
+
+.order__item{
+padding: 0.5rem 0.8rem;
+background-color: styles.$primary-light;
+margin-block:1em ;
+
+    .price__container{
+        display: flex;
+        justify-content: space-between;
+        margin-block: 1em;
+
+        .add__button {
+            background-color: styles.$primary-red;    
+            border: none;
+            border-radius: 50%;
+            padding: 0.5rem;
+            color: #fff;
+            width: 2rem; // Sätt bredden på knappen
+            height: 2rem; // Sätt höjden på knappen
+            display: flex;
+            justify-content: center; // Centrerar innehållet horisontellt
+            align-items: center; // Centrerar innehållet vertikalt
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+
+        .price{
+            position: relative;
+            color: styles.$primary-red;
+
+            .sek{
+                font-size: 0.625rem;
+                position: absolute; // För att kunna placera det exakt
+                top: 0; // Placera det i höjd med toppen av förälderelementet
+                margin-left: 0.1em; // Justera avståndet mellan siffran och "sek"
+            }
+        }
+    }
+    
+
+}
+

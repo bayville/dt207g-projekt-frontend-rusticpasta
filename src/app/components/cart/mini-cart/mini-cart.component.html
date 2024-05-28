@@ -1,0 +1,24 @@
+<div class="cart">
+    <h4 class="menu__item--title">Dina Produkter</h4>
+    <div *ngFor="let entry of itemsInCart; let i = index">
+        <div class="order__item">
+            <h3 class="menu__item--title">{{ entry.menuItem.name }}</h3>
+            <p class="menu__item--description">{{ entry.menuItem.description }}</p>
+            <div class="price__container">
+                <h4 class="menu__item--title price">{{ entry.menuItem.price * entry.quantity }} <span class="sek">sek</span></h4>
+                <div class="number-input">
+                    <button class="minus" (click)="decreaseQuantity(i)">-</button>
+                    <input class="number" type="number" [value]="entry.quantity" min="0" max="100" step="1" (change)="updateQuantity($event, i)">
+                    <button class="plus" (click)="increaseQuantity(i)">+</button>
+                </div>            
+            </div>
+        </div>
+    </div>
+    
+    <button mat-button color="warn" (click)="onClearCartClick()" class="danger clear">Rensa kundkorg</button>
+    <div class="order__summary">
+        <h5 class="menu__item--title summary">Totalt <span>{{totalAmount}} kr</span></h5>
+    </div>
+    <button [routerLink]="'/checkout'" class="btn__primary--red cashout" (click)="onCheckoutClick()">Till Kassan</button>
+    <button mat-button color="warn" class="danger" (click)="onCancelClick()">Stäng</button>
+</div>

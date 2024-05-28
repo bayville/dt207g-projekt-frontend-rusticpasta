@@ -1,0 +1,14 @@
+<div  class="order__block">
+    <article *ngFor="let category of categoriesWithMenuItems">
+        <h2 class="menu__title">{{category.category.name}}</h2>
+        <div *ngFor="let item of category.menuItems" class="order__item">
+            <h3 class="menu__item--title">{{item.name}}</h3>
+            <p class="menu__item--description">{{item.description}}</p>
+            <div class="price__container">
+                <h4 class="menu__item--title price">{{item.price}}<span class="sek">sek</span></h4>
+                <button class="add__button" (click)="addToCart(item)">+</button>
+            </div>
+        </div>
+    </article>
+</div>
+

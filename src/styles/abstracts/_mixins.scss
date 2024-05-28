@@ -9,6 +9,9 @@
 @mixin tablet {
   @media (width < breakpoints.$breakpoint-m) {@content;}
 }
+@mixin menuSliderBp {
+  @media (width < 1000px) {@content;}
+}
 @mixin mobile {
   @media (width < breakpoints.$breakpoint-s) {@content;}
 }
