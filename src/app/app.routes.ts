@@ -14,19 +14,19 @@ import { ConfirmComponent } from './pages/checkout/confirm/confirm.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'order', component: OrderComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'confirmed-order', component: ConfirmComponent },
+  { path: 'order', loadComponent: () => import('./pages/order/order.component').then(c => c.OrderComponent)},
+  { path: 'checkout', loadComponent: () => import('./pages/checkout/checkout.component').then(c => c.CheckoutComponent)},
+  { path: 'login', loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)},
+  { path: 'confirmed-order', loadComponent: () => import('./pages/checkout/confirm/confirm.component').then(c => c.ConfirmComponent)},
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    loadComponent: () => import('./pages/dashboard/dashboard.component').then(c => c.DashboardComponent),
     canActivate: [authGuard],
     children: [
-      { path: 'menuItem', component: MenuItemComponent },
-      { path: 'category', component: CategoryComponent },
-      { path: 'openHours', component: OpenHoursEditComponent },
-      { path: 'orders', component: OrdersComponent },
+      { path: 'menuItem', loadComponent: () => import('./components/admin/menu-item/menu-item.component').then(c => c.MenuItemComponent) },
+      { path: 'category', loadComponent: () => import('./components/admin/category/category.component').then(c => c.CategoryComponent) },
+      { path: 'openHours', loadComponent: () => import('./components/admin/open-hours-edit/open-hours-edit.component').then(c => c.OpenHoursEditComponent) },
+      { path: 'orders', loadComponent: () => import('./components/admin/orders/orders.component').then(c => c.OrdersComponent)},
     ]
   },
 ];
