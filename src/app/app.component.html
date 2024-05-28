@@ -2,4 +2,8 @@
 <main>
   <router-outlet />
 </main>
-<app-footer></app-footer>
+@defer (on viewport) {
+  <app-footer></app-footer>
+} @placeholder {
+  <app-lazyload></app-lazyload>
+}

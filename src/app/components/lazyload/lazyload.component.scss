@@ -1,0 +1,7 @@
+@use '../../../styles/styles.scss' as styles;
+
+div{
+    width: 100%;
+    min-height: 30dvh;
+    background-color: styles.$primary-dark;
+}

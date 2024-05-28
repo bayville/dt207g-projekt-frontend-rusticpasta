@@ -5,6 +5,7 @@ import { MenuSliderComponent } from '../../components/menu-slider/menu-slider.co
 import { CtaComponent } from '../../components/cta/cta.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { InfoSectionComponent } from '../../components/info-section/info-section.component';
+import { LazyloadComponent } from '../../components/lazyload/lazyload.component';
 
 
 
@@ -12,7 +13,7 @@ import { InfoSectionComponent } from '../../components/info-section/info-section
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, FeaturedImageSliderComponent, MenuSliderComponent, CtaComponent, FooterComponent, InfoSectionComponent],
+  imports: [HeroComponent, FeaturedImageSliderComponent, MenuSliderComponent, CtaComponent, FooterComponent, InfoSectionComponent, LazyloadComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -1,8 +1,22 @@
 <app-hero></app-hero>
-<app-featured-images-slider></app-featured-images-slider>
-<app-info-section></app-info-section>
+@defer (on viewport) {
+    <app-featured-images-slider></app-featured-images-slider>
+} @placeholder {
+    <app-lazyload></app-lazyload>
+}
 
-<app-menu-slider></app-menu-slider>
+@defer (on viewport) {
+    <app-info-section></app-info-section>
+} @placeholder {
+    <app-lazyload></app-lazyload>
+}
+
+
+@defer (on viewport) {
+    <app-menu-slider></app-menu-slider>
+} @placeholder {
+    <app-lazyload></app-lazyload>
+}
 
 
 <app-cta 
