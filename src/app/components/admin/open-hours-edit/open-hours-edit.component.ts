@@ -27,10 +27,13 @@ export class OpenHoursEditComponent {
   constructor(private openHoursService: OpenHoursService, public dialog: MatDialog){}
 
   ngOnInit(){
+    this.initData();
+  }
+
+  initData(){
     this.openHoursService.getAllDays().subscribe((days) => {
       this.openHours = days;
       this.dataSource = new MatTableDataSource(this.openHours); // Tilldela dataSource med menuItems
-
     });
   }
 
@@ -43,7 +46,7 @@ export class OpenHoursEditComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log(result);
-          this.ngOnInit();
+          this.initData();
       }
     });
   }

@@ -34,6 +34,10 @@ export class OrdersComponent {
   constructor(private orderService: OrderService, public dialog: MatDialog) { }
 
   ngOnInit() {
+   this.initData();
+  }
+
+  initData(){
     this.orderService.getAllOrders().subscribe({
       next: (orders: any[]) => {
         console.log(orders);
@@ -124,7 +128,7 @@ export class OrdersComponent {
       //Reload after edit
       dialogRef.afterClosed().subscribe((result) => {
         console.log(result);
-        this.ngOnInit();
+        this.initData();
       });
     }
 }

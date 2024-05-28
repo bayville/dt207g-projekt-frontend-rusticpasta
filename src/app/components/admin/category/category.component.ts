@@ -34,6 +34,10 @@ export class CategoryComponent{
   constructor(private categoryService: CategoryService, public dialog: MatDialog) { }
 
   ngOnInit(){
+    this.initData();
+  }
+
+  initData(){
     this.categoryService.getAllCategories().subscribe((categories) => {
       this.categories = categories;
       console.log(categories);
@@ -64,7 +68,7 @@ export class CategoryComponent{
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
-      this.ngOnInit();
+      this.initData();
     });
 
   }
@@ -79,7 +83,7 @@ export class CategoryComponent{
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
       console.log("result: ", result);
-      this.ngOnInit();
+      this.initData();
     });
   }
 }

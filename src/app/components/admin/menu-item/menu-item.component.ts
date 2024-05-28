@@ -36,6 +36,10 @@ export class MenuItemComponent {
   constructor(private menuService: MenuService, private categoryService: CategoryService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.initData();
+  }
+
+  initData(){
     this.menuService.getAllMenuItems().subscribe((menuItems : MenuItem[]) => {
       this.menuItems = menuItems;
       console.log(this.menuItems);
@@ -78,7 +82,7 @@ export class MenuItemComponent {
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
-      this.ngOnInit();
+      this.initData();
     });
   }
 
@@ -92,7 +96,7 @@ export class MenuItemComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log(result);
-          this.ngOnInit();
+          this.initData();
       }
     });
 
