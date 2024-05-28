@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
 export class HeroComponent {
   imgLink: string = '../../assets/img/hero';
   imgLinkJPG: string = '../../assets/img/hero.jpg';
-  imgLinkAVIF: string = '../../assets/img/hero.jpg';
+  imgLinkAVIF: string = '../../assets/img/hero.avif';
   
 
 

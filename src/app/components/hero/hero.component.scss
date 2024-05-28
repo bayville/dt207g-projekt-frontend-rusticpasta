@@ -9,80 +9,86 @@
     color: styles.$primary-beige;
     padding-block: 4rem;
 
-    h1{
+    h1 {
         margin-bottom: 0.3em;
     }
-    h2{
+    h2 {
         margin-bottom: 0.5rem;
     }
 
-  &__img--container {
-    position: relative; // Needed for absolute positioning of child
-    width: 100%; // Ensure full width of container
-    display: flex; // Use flexbox for centering
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    border-radius: 0 30px 30px 0; // Apply border radius as needed
-    max-height: 450px;
-    overflow: hidden;
-
-    &__img {
-      position: relative;
-      width: 100%; // Make the image fill its container
-      height: 100%; // Make the image fill its container
-      object-fit: cover; // Ensure the image covers the entire container without distortion
-
-    }
-  }
-
-  &__content{
-    padding-inline: 1em;
-  }
-
-  &__buttons{
-    display: flex;
-    gap: 1rem;
-    margin-top: 3em;
-
-    @include styles.tablet{
-      flex-direction: column;
-    }
-  }
-
-  @include styles.tablet {
-    position: relative;
-    grid-template-columns: 1fr;
-    padding: 0;
-    height: 95dvh;
-
     &__img--container {
-      position: absolute; // Position the image absolutely within the grid cell
-      height: 100%; // Ensure full height
-      overflow: visible;
-      max-height: 100dvh;
-    }
+        position: relative; // Needed for absolute positioning of child
+        width: 100%; // Ensure full width of container
+        display: flex; // Use flexbox for centering
+        justify-content: center; // Center horizontally
+        align-items: center; // Center vertically
+        border-radius: 0 30px 30px 0; // Apply border radius as needed
+        max-height: 450px;
+        overflow: hidden;
 
-    &__img {
-      width: 100%; // Make the image fill its container
-      height: 95dvh; // Make the image fill its container
-      object-fit: cover; // Ensure the image covers the entire container without distortion
-      border-radius: 0; // Remove border radius
+        picture {
+            width: 100%; // Make the picture fill its container
+            height: 100%; // Make the picture fill its container
+        }
 
+        .hero__img {
+            position: relative;
+            width: 100%; // Make the image fill its container
+            height: 100%; // Make the image fill its container
+            object-fit: cover; // Ensure the image covers the entire container without distortion
+        }
     }
 
     &__content {
-        background-color: rgba(0,0,0,0.6); /* Black background with opacity */
- 
-        display: grid;
-        height: 100%;
-        align-content: center;
-    
-    margin-block: auto;
-      z-index: 2;
-    
-      p{
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-      }
+        padding-inline: 1em;
     }
-  }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 3em;
+
+        @include styles.tablet {
+            flex-direction: column;
+        }
+    }
+
+    @include styles.tablet {
+        position: relative;
+        grid-template-columns: 1fr;
+        padding: 0;
+        height: 95dvh;
+
+        &__img--container {
+            position: absolute; // Position the image absolutely within the grid cell
+            height: 100%; // Ensure full height
+            overflow: visible;
+            max-height: 100dvh;
+        }
+
+        picture {
+            width: 100%; // Make the picture fill its container
+            height: 100%; // Make the picture fill its container
+        }
+
+        .hero__img {
+            width: 100%; // Make the image fill its container
+            height: 95dvh; // Make the image fill its container
+            object-fit: cover; // Ensure the image covers the entire container without distortion
+            border-radius: 0; // Remove border radius
+        }
+
+        &__content {
+            background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+            display: grid;
+            height: 100%;
+            align-content: center;
+            margin-block: auto;
+            z-index: 2;
+
+            p {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            }
+        }
+    }
 }

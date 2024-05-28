@@ -19,7 +19,6 @@
 
 <div class="table__container">
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-    <!-- Columns definitions -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
       <td mat-cell *matCellDef="let order"> {{ order.id }} </td>
@@ -45,7 +44,6 @@
         <td mat-cell *matCellDef="let order"> {{ order.totalAmount }} kr</td>
       </ng-container>
 
-      <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>
           Åtgärder
@@ -53,7 +51,6 @@
         <td mat-cell *matCellDef="let element">
           <div class="button__container">
             <button mat-flat-button color="primary" (click)="openEditDialog(element)"> Hantera </button>
-            <!-- <button mat-icon-button> <mat-icon>edit</mat-icon> </button> -->
   
           </div>
           
@@ -64,6 +61,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[20, 50, 100]" aria-label="Select page of users"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[20, 50, 100]" aria-label="Välj antal rader per sida"></mat-paginator>
   </div>
   

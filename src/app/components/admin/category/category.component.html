@@ -8,33 +8,29 @@
 <div class="table__container">
   <table mat-table [dataSource]="dataSource" matSort>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name" sticky>
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sortera på namn">
         Namn
       </th> 
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
   
-    <!-- Description Column -->
     <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sortera på Beskrivning">
         Beskrivning
       </th>
       <td mat-cell *matCellDef="let element"> {{element.description}} </td>
     </ng-container>
   
-    <!-- Published Column -->
     <ng-container matColumnDef="published">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by published">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sortera på publicerad">
         Publicerad
       </th>
       <td mat-cell *matCellDef="let element"> {{element.published}} </td>
     </ng-container>
 
-    <!-- Published Column -->
     <ng-container matColumnDef="order">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by order">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sortera på ordning">
         Ordning
       </th>
       <td mat-cell *matCellDef="let element"> {{element.order}} </td>
@@ -57,5 +53,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Välj antal rader per sida"></mat-paginator>
 </div>
