@@ -15,6 +15,7 @@ export class OpenHoursComponent {
 
   constructor(private openHoursService: OpenHoursService){}
 
+  //Load data using service
   ngOnInit(){
     this.openHoursService.getAllDays().subscribe(days => {
       this.days = days.map(day => ({
@@ -26,18 +27,18 @@ export class OpenHoursComponent {
     });
   }
 
+  //Format timestring
   formatOpenTime(time: string | null): string {
     if (time) {
-      // Assuming time is in the format 'HH:MM:SS'
-      return time.substring(0, 5); // This will take 'HH:MM'
+      return time.substring(0, 5);
     }
     return '';
   }
 
+  //Format timestring
   formatCloseTime(time: string | null): string {
     if (time) {
-      // Assuming time is in the format 'HH:MM:SS'
-      return time.substring(0, 5); // This will take 'HH:MM'
+      return time.substring(0, 5);
     }
     return 'Stängt';
   }

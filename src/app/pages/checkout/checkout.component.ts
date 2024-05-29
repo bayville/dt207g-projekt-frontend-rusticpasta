@@ -19,6 +19,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private cartService: CartService) {}
 
+  //Sets showCheckout to true if cart has items
   ngOnInit() {
     const cartData = this.cartService.getCart();
     this.showCheckout = cartData.length > 0;

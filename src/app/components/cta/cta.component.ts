@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cta.component.scss'
 })
 export class CtaComponent {
+  //Inputs for content and class
   @Input() title: string = 'Default Title';
   @Input() ctaText: string = 'Default CTA-text';
   @Input() ctaClass: string = 'cta'

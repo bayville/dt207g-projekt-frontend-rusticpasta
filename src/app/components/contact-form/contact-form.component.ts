@@ -27,6 +27,7 @@ export class ContactFormComponent {
     private mailService : MailService,
     private snackBar: MatSnackBar
   ) {
+    //Create form
     this.messageForm = this.formbuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -34,10 +35,12 @@ export class ContactFormComponent {
     });
   }
 
+  //Handle cancel click
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
+  //On send construct object and send emailw
   onSaveClick(): void {
     console.log(this.messageForm);
     if (this.messageForm.valid) {

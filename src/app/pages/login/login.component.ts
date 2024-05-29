@@ -31,8 +31,7 @@ export class LoginComponent {
 
     const { username, password } = this.form;
 
-    console.log(this.form);
-
+    //Logs in, and navigates to admin-dashboard
     this.authService.login(username, password).subscribe({
       next: data => {
         console.log(data);
@@ -49,7 +48,6 @@ export class LoginComponent {
         }
 
         console.error("Errors", err);
-        console.log("Loggar this.errors", this.formErrors);
       }
     });
   }

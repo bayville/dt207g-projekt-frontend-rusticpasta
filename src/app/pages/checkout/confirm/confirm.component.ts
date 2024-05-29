@@ -20,6 +20,7 @@ export class ConfirmComponent {
     private route: ActivatedRoute,
   ) {}
 
+  //Gets the order using the orderId from params in URL
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const orderId = params['orderId'];
@@ -33,8 +34,3 @@ export class ConfirmComponent {
 
   }
 }
-
-
-
-
-// fredrik@bayville.se

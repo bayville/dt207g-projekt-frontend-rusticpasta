@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
+  //Heroimage links
   imgLink: string = '../../assets/img/hero';
   imgLinkJPG: string = '../../assets/img/hero.jpg';
   imgLinkAVIF: string = '../../assets/img/hero.avif';

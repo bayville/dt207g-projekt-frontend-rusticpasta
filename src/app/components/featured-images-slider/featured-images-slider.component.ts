@@ -16,8 +16,10 @@ export class FeaturedImageSliderComponent {
 
   slider!: KeenSliderInstance | null;
 
+  //Inititalize slider
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
+      //1 slide on smaller devices and 4 on larger
       breakpoints: {
         "(min-width: 400px)": {
           slides: { perView: 1, spacing: 0 },

@@ -10,26 +10,31 @@ export class CartService {
   private totalAmountKey = 'totalAmount';
   private numberOfItemsKey = 'numberOfItems';
 
+  //Gets the cart and returns it
   getCart(): { menuItem: MenuItem, quantity: number }[] {
     const cart = localStorage.getItem(this.cartKey);
     return cart ? JSON.parse(cart) : [];
   }
 
+  //Gets the total amount
   getTotalAmount(): number {
     const amount = localStorage.getItem(this.totalAmountKey);
     return amount ? JSON.parse(amount) : 0;
   }
 
+  //Gets number of items in cart
   getNumberOfItems(): number {
     const numberOfItems = localStorage.getItem(this.numberOfItemsKey);
     return numberOfItems ? JSON.parse(numberOfItems) : 0;
   }
 
+  // Updates the cart
   updateCart(cart: { menuItem: MenuItem, quantity: number }[]): void {
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
     this.updateTotals(cart);
   }
 
+  //Updates the cart total amount and number of items
   private updateTotals(cart: { menuItem: MenuItem, quantity: number }[]): void {
     let totalAmount = 0;
     let numberOfItems = 0;
@@ -42,6 +47,7 @@ export class CartService {
     localStorage.setItem(this.numberOfItemsKey, numberOfItems.toString());
   }
 
+  //Adds item to cart
   addToCart(item: MenuItem): void {
     let cart = this.getCart();
     const existingIndex = cart.findIndex(entry => entry.menuItem.id === item.id);
@@ -55,6 +61,7 @@ export class CartService {
     this.updateCart(cart);
   }
 
+  //Decreases the quantity, if 0 deletes the item from the array
   decreaseQuantity(index: number): void {
     let cart = this.getCart();
     if (cart[index].quantity > 0) {
@@ -66,12 +73,14 @@ export class CartService {
     }
   }
 
+  //Increases quantity
   increaseQuantity(index: number): void {
     let cart = this.getCart();
     cart[index].quantity++;
     this.updateCart(cart);
   }
 
+  //Updates the quantity, if quantity is 0 remove item
   updateQuantity(index: number, newQuantity: number): void {
     let cart = this.getCart();
     if (newQuantity > 0) {
@@ -83,6 +92,7 @@ export class CartService {
     }
   }
 
+  //Clears the cart
   clearCart(): void {
     const cart: [] = [];
     localStorage.setItem(this.cartKey, JSON.stringify(cart));

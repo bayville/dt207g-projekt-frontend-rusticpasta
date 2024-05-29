@@ -13,10 +13,9 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
+  //Find existing customer using email
   findCustomer(email: string): Observable<Customer> {
-
     return this.http.post<Customer>(`${this.apiUrl}/customer/find`, { email });
-
   }
 }
   

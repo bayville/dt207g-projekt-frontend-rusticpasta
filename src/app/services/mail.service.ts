@@ -11,7 +11,7 @@ export class MailService {
 
   constructor(private http: HttpClient) { }
 
-
+  //Sends the email from contactform
   sendContactForm(form: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/mail/contactForm`, form);
   }

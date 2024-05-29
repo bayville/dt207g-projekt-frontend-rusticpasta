@@ -17,6 +17,7 @@ export class DashboardComponent {
 
   constructor(private router: Router) {}
 
+  //Displays selected route on page.
   navigateTo(page: string) {
     this.router.navigate([`/dashboard/${page}`]);
   }

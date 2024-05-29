@@ -44,19 +44,19 @@ export class OrderItemComponent {
   private groupMenuItemsByCategory(menuItems: MenuItem[], categories: Category[]): GroupedMenuItems[] {
     const groupedMenuItems: GroupedMenuItems[] = [];
     
-    // Loopa igenom varje kategori
+    // Loop through each category
     categories.forEach(category => {
-        // Skapa en tom array för menyföremål för denna kategori
+        //Create array for categories
         const categoryMenuItems: MenuItem[] = [];
         
-        // Loopa igenom varje menyföremål och lägg till det i categoryMenuItems om det tillhör den aktuella kategorin
+        //Loop each menuitem and add it to its corresponding category
         menuItems.forEach(menuItem => {
             if (menuItem.categoryId === category.id) {
                 categoryMenuItems.push(menuItem);
             }
         });
         
-        // Lägg till kategorin och dess menyföremål i groupedMenuItems om det finns några menyföremål för denna kategori
+        //Add the category and menuitems to array
         if (categoryMenuItems.length > 0) {
             groupedMenuItems.push({
                 category: category,

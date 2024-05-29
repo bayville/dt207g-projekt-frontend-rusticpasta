@@ -64,7 +64,7 @@ export class MenuSliderComponent {
     return groupedMenuItems;
 }
 
-
+//Initialize slider with delay
 ngAfterViewInit() {
   setTimeout(() => {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
