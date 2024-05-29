@@ -25,7 +25,9 @@ export class ConfirmComponent {
       const orderId = params['orderId'];
       console.log(orderId);
       this.orderService.getOneOrder(orderId).subscribe(order => {
+        console.log(order);
         this.order = order;
+        console.log(this.order);
       });
     });
 

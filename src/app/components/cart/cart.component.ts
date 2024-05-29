@@ -20,34 +20,31 @@ export class CartComponent {
     private cartService: CartService
 
   ) {
-    this.loadCart();
+    this.loadCart(); //Loads cart
   }
   
-   private loadCart(): void {
+  //Loads cart
+  private loadCart(): void {
     this.itemsInCart = this.cartService.getCart();
     this.totalAmount = this.cartService.getTotalAmount();
   }
 
+  //Decrease quantity of item with index
   decreaseQuantity(index: number): void {
     this.cartService.decreaseQuantity(index);
     this.loadCart();
   }
 
+  //Increases quantity of item with indexw
   increaseQuantity(index: number): void {
     this.cartService.increaseQuantity(index);
     this.loadCart();
   }
 
+  //Updates the quantity of items
   updateQuantity(event: any, index: number): void {
     const newQuantity = parseInt(event.target.value, 10);
-    console.log(newQuantity);
-    if (newQuantity > 0) {
       this.cartService.updateQuantity(index, newQuantity);
       this.loadCart();
-    } else {
-      this.cartService.updateQuantity(index, newQuantity);
-      this.loadCart();
-    } 
   }
-
 }

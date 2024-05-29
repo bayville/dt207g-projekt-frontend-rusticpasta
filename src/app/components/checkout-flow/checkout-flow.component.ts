@@ -38,7 +38,6 @@ export class CheckoutFlowComponent  {
   orderReciept: any;
 
 
-
   constructor(
     private _formBuilder: FormBuilder,
     private customerService: CustomerService,
@@ -50,10 +49,12 @@ export class CheckoutFlowComponent  {
 
 
   ngOnInit() {
+    //Creates formgroup
     this.firstFormGroup = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
     });
 
+    //Creates formgroup
     this.secondFormGroup = this._formBuilder.group({
       email: [{ value: '', }, [Validators.required, Validators.email]],
       firstName: ['', Validators.required],
@@ -62,21 +63,18 @@ export class CheckoutFlowComponent  {
     });
   }
   
+  //Checks if customer exist, if customer exist prefill form with customer data.
   checkCustomer() {
     const email = this.firstFormGroup.get('email')?.value;
-    console.log(this.firstFormGroup.get('email')?.value);
 
     this.customerService.findCustomer(email).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          // Kunde hittas inte
           this.secondFormGroup.patchValue({ email });
         } else {
-          // Hantera andra typer av fel här
           console.error('Error fetching customer:', error);
-          // Du kan även visa ett felmeddelande till användaren här
         }
-        return of (null); // Return an observable with a null value
+        return of (null); 
       })
     ).subscribe((customer) => {
       if (customer) {
@@ -94,9 +92,10 @@ export class CheckoutFlowComponent  {
     });
   }
 
+  //Checkout
   checkOut(stepper: MatStepper){
     if (this.secondFormGroup.valid){
-      const customerData = this.secondFormGroup.value;  // {email, firstName, lastName, phone}
+      const customerData: Customer = this.secondFormGroup.value;  
       this.customer = customerData;
       const totalAmount = localStorage.getItem('totalAmount');
       const cart = this.cartService.getCart();
@@ -105,7 +104,8 @@ export class CheckoutFlowComponent  {
           menuItemId: item.menuItem.id,
           quantity: item.quantity
         }))
-    
+        
+        //Creates the object to send for order - if order is created redirect to confirmed-order
         const body = {customerData, totalAmount, item};
         this.orderService.newOrder(body).subscribe((order => {
           console.log("Order:", order);

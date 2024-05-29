@@ -37,6 +37,7 @@ export class CategoryComponent{
     this.initData();
   }
 
+  //Loads the data from service
   initData(){
     this.categoryService.getAllCategories().subscribe((categories) => {
       this.categories = categories;
@@ -47,6 +48,7 @@ export class CategoryComponent{
     })
   }
 
+  //Applies searchfilter
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -56,6 +58,7 @@ export class CategoryComponent{
     }
   }
 
+  //Opens edit dialog
   openEditDialog(category: Category): void {
     console.log(category);
     const dialogRef = this.dialog.open(CategoryEditDialogComponent, {

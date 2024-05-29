@@ -39,6 +39,7 @@ export class MenuItemComponent {
     this.initData();
   }
 
+  //Loads the data from service
   initData(){
     this.menuService.getAllMenuItems().subscribe((menuItems : MenuItem[]) => {
       this.menuItems = menuItems;
@@ -47,7 +48,7 @@ export class MenuItemComponent {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       
-        // Custom sorting data accessor
+        // Custom sorting 
         this.dataSource.sortingDataAccessor = (item: MenuItem, property: string) => {
           switch (property) {
             case 'category': return item.category ? item.category.name : '';
@@ -60,6 +61,7 @@ export class MenuItemComponent {
     })
   }
 
+  //Applies searchfilter
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

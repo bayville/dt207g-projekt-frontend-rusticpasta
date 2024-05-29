@@ -23,13 +23,14 @@ export class CategoryEditDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CategoryEditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {category: Category},
+    @Inject(MAT_DIALOG_DATA) public data: {category: Category}, //Inject data from parent
     private formBuilder: FormBuilder,
     private categoryService: CategoryService
   ) 
   {
-    this.category = data.category;
-    console.log("data.cat", data.category);
+
+    this.category = data.category; //Sets category to data from parent
+    //Creates new form prefilled with data from parent
     this.editForm = this.formBuilder.group({
       name: [data.category.name, Validators.required],
       description: [data.category.description],
@@ -38,13 +39,17 @@ export class CategoryEditDialogComponent {
     });
   }
 
+  //Handles cancel click
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
+  //On save updates the category, sends result or error parent
   onSaveClick(): void {
     if (this.editForm.valid) {
-      const updatedCategory = {
+
+      //Create object
+      const updatedCategory: Category = {
         id: this.data.category.id,
         name: this.editForm.value.name,
         description: this.editForm.value.description,
@@ -52,15 +57,12 @@ export class CategoryEditDialogComponent {
         order: this.editForm.value.order
       };
 
-      console.log(this.editForm.value.published);
-
       this.categoryService.updateCategory(updatedCategory).subscribe(
         (result) => {
           this.dialogRef.close(result);
         },
         (error) => {
           console.error('Error updating menu item:', error);
-          // Handle the error here, e.g., show an error message
         }
       );
 

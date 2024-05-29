@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { baseApiUrl } from '../config/config';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Status } from '../models/status';
+import { Order } from '../models/order';
 
 
 @Injectable({
@@ -24,22 +25,22 @@ export class OrderService {
     return this.http.get<any>(`${this.apiUrl}/order/getOrderStatus/${id}`);
   }
 
-  getOneOrder(id: {}): Observable<any> {
+  getOneOrder(id: {}): Observable<Order> {
     console.log("getOneOrder: ", id);
-    return this.http.get<any>(`${this.apiUrl}/order/id=${id}`);
+    return this.http.get<Order>(`${this.apiUrl}/order/id=${id}`);
   }
 
-  getAllOrders(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/order/protected/getAll`);
+  getAllOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.apiUrl}/order/protected/getAll`);
   }
 
   getAllStatuses(): Observable<Status[]> {
     return this.http.get<Status[]>(`${this.apiUrl}/order/statuses/`);
   }
 
-  updateOrderStatus(status: any): Observable<any> {
+  updateOrderStatus(status: any): Observable<Status> {
     console.log(status.id);
-    return this.http.put<any>(`${this.apiUrl}/order/protected/status/${status.id}`, status);
+    return this.http.put<Status>(`${this.apiUrl}/order/protected/status/${status.id}`, status);
   }
 
 }

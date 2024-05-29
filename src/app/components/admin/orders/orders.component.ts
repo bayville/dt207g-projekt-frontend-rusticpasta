@@ -12,6 +12,7 @@ import { OrderService } from '../../../services/order.service';
 import { MatSelectModule } from '@angular/material/select';
 import { Status } from '../../../models/status';
 import { OrdersEditDialogComponent } from './orders-edit-dialog/orders-edit-dialog.component';
+import { Order } from '../../../models/order';
 
 
 @Component({
@@ -22,7 +23,7 @@ import { OrdersEditDialogComponent } from './orders-edit-dialog/orders-edit-dial
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent {
-  orders: any[] = [];
+  orders: Order[] = [];
   statuses: Status[] = [];
   displayedColumns: string[] = ['id', 'customer',  'status','orderTime', 'totalAmount', 'actions' ];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
@@ -37,20 +38,20 @@ export class OrdersComponent {
    this.initData();
   }
 
+  //Loads the data from service
   initData(){
     this.orderService.getAllOrders().subscribe({
-      next: (orders: any[]) => {
-        console.log(orders);
+      next: (orders: Order[]) => {
         this.orders = orders;
         this.dataSource = new MatTableDataSource(this.orders); 
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        console.log(this.dataSource);
 
+        //Custom sorting
         this.dataSource.sortingDataAccessor = (item, property) => {
           switch (property) {
             case 'customer':
-              return item.customer.firstName + ' ' + item.customer.lastName;
+              return item.customer.firstName + ' ' + item.customer.lastName; //Concat name
             case 'status':
               return item.status.name;
             case 'orderTime':
@@ -60,12 +61,13 @@ export class OrdersComponent {
           }
         };
 
+        //Sets default sorting column and sort direct
         this.sort.active = 'id';
         this.sort.direction = 'desc'; 
         this.sort.sortChange.emit();
 
-        // Custom filter predicate
-        this.dataSource.filterPredicate = (data: any, filter: string) => {
+        // Custom filter
+        this.dataSource.filterPredicate = (data: any) => {
           if (this.selectedStatus) {
             return data.status.name.toLowerCase() === this.selectedStatus.toLowerCase();
           }
@@ -77,6 +79,7 @@ export class OrdersComponent {
         console.error('Error fetching orders:', error);
       }
     });
+    //Get all statuses
     this.orderService.getAllStatuses().subscribe({
       next: (statuses: Status[]) => {
         this.statuses = statuses;
@@ -87,10 +90,8 @@ export class OrdersComponent {
     });
   }
 
+  //Apply search filter
   applyFilter(event: Event) {
-    console.log(event);
-    console.log(this.dataSource);
-  
     const input = event.target as HTMLInputElement;
     const filterValue = input.value.trim().toLowerCase();
     
@@ -106,6 +107,7 @@ export class OrdersComponent {
     }
   }
 
+  //Droppdown select filter
   applyStatusFilter(event: any) {
     this.selectedStatus = event.value;
     this.dataSource.filter = this.selectedStatus.toLowerCase();

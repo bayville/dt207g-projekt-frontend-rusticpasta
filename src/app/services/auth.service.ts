@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { baseApiUrl } from '../config/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
+import { User } from '../models/user';
 
 
 @Injectable({

@@ -24,12 +24,14 @@ export class MenuItemEditDialogComponent {
   
   constructor(
     public dialogRef: MatDialogRef<MenuItemEditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { menuItem: MenuItem, categories: Category[] },
+    @Inject(MAT_DIALOG_DATA) public data: { menuItem: MenuItem, categories: Category[] }, //Injects data from parent
     private formBuilder: FormBuilder,
     private menuService: MenuService
   ) {
-    this.categories = data.categories;
-    console.log(this.categories);
+
+    this.categories = data.categories; //Sets categoires to data from parent
+    
+    //Creates form prefilled with data from parent
     this.editForm = this.formBuilder.group({
       name: [data.menuItem.name, Validators.required],
       description: [data.menuItem.description],
@@ -39,13 +41,16 @@ export class MenuItemEditDialogComponent {
     });
   }
 
+  //Handles cancel clickl
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
+  //On save updates menuItem sends result or error to parent
   onSaveClick(): void {
     if (this.editForm.valid) {
-      console.log(this.editForm.value);
+
+      //Creates object
       const updatedMenuItem: MenuItem = {
         id: this.data.menuItem.id,
         name: this.editForm.value.name,
@@ -54,8 +59,6 @@ export class MenuItemEditDialogComponent {
         categoryId: this.editForm.value.category,
         published: this.editForm.value.published
       };
-
-      console.log(this.editForm.value.published);
 
       this.menuService.updateMenuItem(updatedMenuItem).subscribe(
         (result) => {

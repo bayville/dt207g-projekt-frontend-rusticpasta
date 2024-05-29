@@ -24,13 +24,14 @@ export class AddMenuItemDialogComponent {
   categories: Category[];
   
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Category[],
+    @Inject(MAT_DIALOG_DATA) public data: Category[], //Injects categories from parent component
     public dialogRef: MatDialogRef<AddMenuItemDialogComponent>,
     private menuService: MenuService,
     private formbuilder: FormBuilder
 
   ) {
-    this.categories = this.data;
+    this.categories = this.data; //Sets category to data injected from parent
+    //Create form
     this.addForm = this.formbuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -40,10 +41,12 @@ export class AddMenuItemDialogComponent {
     });
   }
 
+  //Handles cancel
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
+  //On save create new menuItem,  sends result or error parent
   onSaveClick(): void {
     console.log(this.addForm);
     if (this.addForm.valid) {
@@ -63,7 +66,6 @@ export class AddMenuItemDialogComponent {
         },
         (error) => {
           console.error('Error updating menu item:', error);
-          // Handle the error here, e.g., show an error message
         }
       );
 

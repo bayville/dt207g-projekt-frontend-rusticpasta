@@ -17,20 +17,11 @@ import { RouterLink } from '@angular/router';
 
 export class OrderComponent {
   showCart: boolean = false;
-  numberOfItems: number = 0;
   
-  @HostListener('window:storage')
-    onStorageChange(event: StorageEvent) {
-  }
-
 
   constructor(public dialog: MatDialog){  }
 
-  ngOnInit(){
-    addEventListener("storage", (event) => {console.log(event);});
-    onstorage = (event) => {console.log(event);};
-  }
-
+  //Opens MiniCartDialog
   openAddDialog(): void {
     const dialogRef = this.dialog.open(MiniCartComponent, {
       width: '500px',

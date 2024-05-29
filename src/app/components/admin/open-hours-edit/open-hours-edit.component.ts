@@ -30,6 +30,7 @@ export class OpenHoursEditComponent {
     this.initData();
   }
 
+//Loads the data from service
   initData(){
     this.openHoursService.getAllDays().subscribe((days) => {
       this.openHours = days;
@@ -37,12 +38,14 @@ export class OpenHoursEditComponent {
     });
   }
 
+  //Opens edit dialog
   openEditDialog(day: OpenHours): void {
     const dialogRef = this.dialog.open(OpenHoursEditDialogComponent, {
       width: '400px',
       data: day
     });
-
+    
+    //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log(result);

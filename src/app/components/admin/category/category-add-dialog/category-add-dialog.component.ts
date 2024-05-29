@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -7,8 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgFor } from '@angular/common';
-import { Category } from '../../../../models/category';
 import { CategoryService } from '../../../../services/category.service';
+import { Category } from '../../../../models/category';
 
 @Component({
   selector: 'app-category-add-dialog',
@@ -26,6 +26,7 @@ export class CategoryAddDialogComponent {
     private categoryService: CategoryService
   ) 
   {
+    //Creates the form
     this.addForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -34,22 +35,20 @@ export class CategoryAddDialogComponent {
     });
   }
 
+  //Handles cancel click
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
+  //On save create new category,  sends result or error parent
   onSaveClick(): void {
     if (this.addForm.valid) {
-      const category = {
+      const category : Category = {
         name: this.addForm.value.name,
         description: this.addForm.value.description,
         published: this.addForm.value.published,
         order: this.addForm.value.order
       };
-
-      console.log(category);
-
-      console.log(this.addForm.value.published);
 
       this.categoryService.addCategory(category).subscribe(
         (result) => {
@@ -57,7 +56,6 @@ export class CategoryAddDialogComponent {
         },
         (error) => {
           console.error('Error updating menu item:', error);
-          // Handle the error here, e.g., show an error message
         }
       );
 
