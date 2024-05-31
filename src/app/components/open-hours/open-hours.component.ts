@@ -23,7 +23,6 @@ export class OpenHoursComponent {
         openTime: this.formatOpenTime(day.openTime),
         closeTime: this.formatCloseTime(day.closeTime)
       }));
-      console.log(this.days);
     });
   }
 

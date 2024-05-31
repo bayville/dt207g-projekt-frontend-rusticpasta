@@ -32,10 +32,7 @@ export class OrderItemComponent {
   ngOnInit(): void {
     this.categoryService.getAllPublishedCategories().subscribe((categories) => {
       this.menuService.getAllPublishedMenuItems().subscribe((menuItems) => {
-        console.log(menuItems);
-        console.log(categories);
        this.categoriesWithMenuItems = this.groupMenuItemsByCategory(menuItems, categories);
-       console.log(this.categoriesWithMenuItems);
       })
     })
   }
