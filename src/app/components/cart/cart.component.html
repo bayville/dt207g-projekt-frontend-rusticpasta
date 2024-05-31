@@ -8,9 +8,9 @@
                 <h4 class="menu__item--title price">{{ entry.menuItem.price * entry.quantity }} <span class="sek">sek</span></h4>
                 <div class="number-input">
                     <button class="minus" (click)="decreaseQuantity(i)">-</button>
-                    <input class="number" type="number" [value]="entry.quantity" min="0" max="100" step="1" (change)="updateQuantity($event, i)">
+                    <input class="number" type="number" [value]="entry.quantity" min="0" max="100" step="1" (change)="updateQuantity($event, i)" aria-label="Antal">
                     <button class="plus" (click)="increaseQuantity(i)">+</button>
-                </div>
+                  </div>
             </div>
         </div>
     </div>

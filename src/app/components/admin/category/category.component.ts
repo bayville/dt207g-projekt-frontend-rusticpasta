@@ -14,8 +14,6 @@ import { CategoryEditDialogComponent } from './category-edit-dialog/category-edi
 import { CategoryAddDialogComponent } from './category-add-dialog/category-add-dialog.component';
 
 
-
-
 @Component({
   selector: 'app-category',
   standalone: true,

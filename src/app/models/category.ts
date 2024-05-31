@@ -5,3 +5,4 @@ export interface Category {
     order: number;
     published: boolean;
 }
+

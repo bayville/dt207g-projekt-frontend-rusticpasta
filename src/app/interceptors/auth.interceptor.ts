@@ -5,7 +5,6 @@ import { catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  console.log("i authInterceptor");
   const storageService = inject(StorageService); // Inject the StorageService
   const authToken = storageService.getUser(); // Get the user data
   const router = inject(Router); // Inject the Router service
@@ -15,7 +14,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   // Check if the request URL is a protected route
   const isProtectedRoute = protectedRoutes.some(route => req.url.includes(route));
-  console.log("isProtectedRoute: ", isProtectedRoute);
 
   if (isProtectedRoute) {
     // Clone the request and add the authorization header
@@ -47,7 +45,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           console.error('Error: ', error);
         }
 
-        // Return an observable with a user-facing error message
+        // Return an observable with a user error message
         return throwError(() => new Error('Något gick fel'));
       })
     );

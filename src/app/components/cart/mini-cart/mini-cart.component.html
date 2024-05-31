@@ -8,7 +8,7 @@
                 <h4 class="menu__item--title price">{{ entry.menuItem.price * entry.quantity }} <span class="sek">sek</span></h4>
                 <div class="number-input">
                     <button class="minus" (click)="decreaseQuantity(i)">-</button>
-                    <input class="number" type="number" [value]="entry.quantity" min="0" max="100" step="1" (change)="updateQuantity($event, i)">
+                    <input class="number" type="number" [value]="entry.quantity" min="0" max="100" step="1" (change)="updateQuantity($event, i)" aria-label="Antal">
                     <button class="plus" (click)="increaseQuantity(i)">+</button>
                 </div>            
             </div>
@@ -20,5 +20,5 @@
         <h5 class="menu__item--title summary">Totalt <span>{{totalAmount}} kr</span></h5>
     </div>
     <button [routerLink]="'/checkout'" class="btn__primary--red cashout" (click)="onCheckoutClick()">Till Kassan</button>
-    <button mat-button color="warn" class="danger" (click)="onCancelClick()">Stäng</button>
+    <button mat-button class="danger" (click)="onCancelClick()">Stäng</button>
 </div>
