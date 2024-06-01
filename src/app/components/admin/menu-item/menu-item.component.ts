@@ -43,7 +43,6 @@ export class MenuItemComponent {
   initData(){
     this.menuService.getAllMenuItems().subscribe((menuItems : MenuItem[]) => {
       this.menuItems = menuItems;
-      console.log(this.menuItems);
       this.dataSource = new MatTableDataSource(this.menuItems); 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -83,7 +82,6 @@ export class MenuItemComponent {
 
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       this.initData();
     });
   }
@@ -97,8 +95,7 @@ export class MenuItemComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result);
-          this.initData();
+        this.initData();
       }
     });
 
@@ -107,10 +104,8 @@ export class MenuItemComponent {
 
   //Delete menu item
   delteItem(menuItem: MenuItem){
-    console.log(menuItem);
     const confirmDelete: boolean = window.confirm(`Är du säker på att du vill ta bort ${menuItem.name}?`)
     if(confirmDelete){
-      console.log(menuItem);
       this.menuService.deleteMenuItem(menuItem).subscribe(() => { 
           this.ngOnInit(); 
       });

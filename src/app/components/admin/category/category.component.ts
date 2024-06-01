@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { DatePipe, NgFor } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -39,7 +39,6 @@ export class CategoryComponent{
   initData(){
     this.categoryService.getAllCategories().subscribe((categories) => {
       this.categories = categories;
-      console.log(categories);
       this.dataSource = new MatTableDataSource(this.categories); 
       this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;
@@ -58,7 +57,6 @@ export class CategoryComponent{
 
   //Opens edit dialog
   openEditDialog(category: Category): void {
-    console.log(category);
     const dialogRef = this.dialog.open(CategoryEditDialogComponent, {
       width: '400px',
       data: {
@@ -68,7 +66,6 @@ export class CategoryComponent{
 
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       this.initData();
     });
 
@@ -83,7 +80,6 @@ export class CategoryComponent{
 
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
-      console.log("result: ", result);
       this.initData();
     });
   }

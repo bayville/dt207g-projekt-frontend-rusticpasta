@@ -48,7 +48,6 @@ export class OpenHoursEditComponent {
     //Reload after edit
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result);
           this.initData();
       }
     });

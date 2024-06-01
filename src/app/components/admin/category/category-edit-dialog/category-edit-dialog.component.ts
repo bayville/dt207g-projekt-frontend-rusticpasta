@@ -28,12 +28,11 @@ export class CategoryEditDialogComponent {
     private categoryService: CategoryService
   ) 
   {
-
     this.category = data.category; //Sets category to data from parent
     //Creates new form prefilled with data from parent
     this.editForm = this.formBuilder.group({
       name: [data.category.name, Validators.required],
-      description: [data.category.description],
+      description: [data.category.description, Validators.required],
       order: [data.category.order, Validators.required],
       published: [data.category.published]
     });

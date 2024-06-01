@@ -6,16 +6,16 @@
 }
 
 @defer (on viewport) {
-    <app-info-section></app-info-section>
+    <app-info-section id="about"></app-info-section>
 } @placeholder {
     <app-lazyload></app-lazyload>
 }
 
 
 @defer (on viewport) {
-    <app-menu-slider></app-menu-slider>
+    <app-menu-slider id="menu"></app-menu-slider>
 } @placeholder {
-    <app-lazyload></app-lazyload>
+    <app-lazyload id="menu"></app-lazyload>
 }
 
 

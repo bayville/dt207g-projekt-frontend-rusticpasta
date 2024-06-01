@@ -37,7 +37,6 @@ export class NavigationComponent {
       } else {
         this.renderer.removeClass(document.body, 'no-scroll');
       }
-      console.log(this.isMenuOpen);
     }
   }
 }

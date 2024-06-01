@@ -129,7 +129,6 @@ export class OrdersComponent {
   
       //Reload after edit
       dialogRef.afterClosed().subscribe((result) => {
-        console.log(result);
         this.initData();
       });
     }

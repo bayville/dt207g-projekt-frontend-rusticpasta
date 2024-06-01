@@ -34,7 +34,6 @@ export class LoginComponent {
     //Logs in, and navigates to admin-dashboard
     this.authService.login(username, password).subscribe({
       next: data => {
-        console.log(data);
         this.storageService.saveUser(data.response.token);
         this.router.navigateByUrl('/dashboard');
         

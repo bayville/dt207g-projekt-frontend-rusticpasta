@@ -30,8 +30,6 @@ export class OrdersEditDialogComponent {
   ) {
     this.order = data.order;
     this.status = data.status
-    console.log(this.order);
-    console.log(this.status);
     this.editForm = this.formBuilder.group({
       status: [data.order.status],
     });
@@ -44,15 +42,12 @@ export class OrdersEditDialogComponent {
 
   onSaveClick(): void {
     if (this.editForm.valid) {
-      console.log(this.editForm.value);
-
       const updatedOrder = {
         id: this.order.id,
         status: this.editForm.value.status
       }
 
       this.orderService.updateOrderStatus(updatedOrder).subscribe((order) => {
-        console.log(order);
       });
 
       this.dialogRef.close(updatedOrder);

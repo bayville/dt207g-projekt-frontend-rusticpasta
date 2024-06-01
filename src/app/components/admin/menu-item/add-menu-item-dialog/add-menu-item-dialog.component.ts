@@ -48,7 +48,6 @@ export class AddMenuItemDialogComponent {
 
   //On save create new menuItem,  sends result or error parent
   onSaveClick(): void {
-    console.log(this.addForm);
     if (this.addForm.valid) {
       const newMenuItem : MenuItem = {
         name: this.addForm.value.name,
@@ -57,8 +56,6 @@ export class AddMenuItemDialogComponent {
         categoryId: this.addForm.value.category,
         published: this.addForm.value.published,
       };
-
-      console.log(newMenuItem);
 
       this.menuService.addMenuItem(newMenuItem).subscribe(
         (result) => {

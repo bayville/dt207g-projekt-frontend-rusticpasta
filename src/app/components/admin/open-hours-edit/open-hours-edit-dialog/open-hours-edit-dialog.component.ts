@@ -27,7 +27,6 @@ export class OpenHoursEditDialogComponent {
     private formBuilder: FormBuilder,
     private openHoursService: OpenHoursService
   ) {
-    console.log(data.day);
     this.editForm = this.formBuilder.group({
       closed: [false],
       openTime: [data.openTime, Validators['required']],
@@ -55,7 +54,6 @@ export class OpenHoursEditDialogComponent {
       let updatedDay;
 
       if(this.editForm.get('closed')?.value === true){ 
-        console.log('true');
         updatedDay = {
           id: this.data.id,
           day: this.data.day,

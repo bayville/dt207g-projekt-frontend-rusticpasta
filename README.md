@@ -1,4 +1,56 @@
 # RusticPasta
+Detta repo är webbplats för restaurangen Rustic Pasta och är skapat med Angular. Webbplatsen består av en publik del med startsida samt ett enklare ordersystem. Det finns även ett enklare CMS-system där en administratör kan lägga till, ändra och ta bort maträtter i menyn, lägga till och hantera kategorier och öppettider, samt hantera inkommande ordrar. Webbplatsen kommunicerar med en webbtjänst för att hantera all kommunikation med databasen, [repot för webbtjänsten.](https://github.com/bayville/dt207g-projekt-backend).
+
+[Livedemo av webbplatsen](https://rusticpasta.bayville.se)
+
+Inloggningsuppgifter för admin:
+- [Inloggning](https://rusticpasta.bayville.se/login)
+- Användarnamn: demo
+- Lösenord: demo1234
+----
+
+### Installation
+
+För att installera och köra projektet lokalt, följ dessa steg:
+
+1. Klona GitHub-repot:
+
+```bash
+git clone https://github.com/bayville/dt207g-projekt-frontend-rusticpasta.git
+npm install
+ng serve
+```
+2. Konfigurera filen i mappen app/config för att ändra adressen till din webbtjänst: t.ex. 127.0.0.1/api. 
+
+3. Om du startar repot på localhost kan du starta med flaggan --host för att göra den tillgänglig via lan. t.ex: ng serve --host 0.0.0.0 
+
+### Om webbplatsen samt mappstruktur
+
+- Styling av webbplatsen är gjord med SCSS.
+- Administrationsgränssnittet använder Material UI
+- Även vissa delar av webbplatsen som kassan och kundkorgen använder sig av funktionalitet från Material UI
+- Använder sig av Services för att sköta all kommunikation med webbtjänsten
+
+### Mappstruktur
+``` bash
+.
+│
+├── app
+│   ├── components
+│   ├── config
+│   ├── guards
+│   ├── interceptors
+│   ├── models
+│   ├── pages
+│   └── services
+├── assets
+│   └── img
+└── styles
+    ├── abstracts
+    ├── base
+    └── components
+```
+----
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
 

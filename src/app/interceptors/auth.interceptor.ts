@@ -23,7 +23,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       }
     });
 
-    console.log(authReq);
     // Pass the cloned request with the updated header to the next handler
     return next(authReq).pipe(
       catchError((error: HttpErrorResponse) => {
