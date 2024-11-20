@@ -8,6 +8,10 @@ Inloggningsuppgifter för admin:
 - Användarnamn: demo
 - Lösenord: demo1234
 ----
+### Screenshots
+![Rustic Pasta Home Page](https://github.com/bayville/dt207g-projekt-frontend-rusticpasta/blob/master/rp1.png)
+![Rustic Pasta Order Page](https://github.com/bayville/dt207g-projekt-frontend-rusticpasta/blob/master/rp2.png)
+![Rustic Pasta Admin Page](https://github.com/bayville/dt207g-projekt-frontend-rusticpasta/blob/master/rp3.png)
 
 ### Installation
 
